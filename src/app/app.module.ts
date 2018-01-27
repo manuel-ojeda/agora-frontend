@@ -7,6 +7,11 @@ import { ProductComponent } from './product/product.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { B2cprofilesComponent } from './b2cprofiles/b2cprofiles.component';
+import { B2cprofileComponent } from './b2cprofile/b2cprofile.component';
+import { B2cprofileService } from './_services/b2cprofile.service';
+import { HttpClient, HttpHeaders, HttpHandler } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -19,16 +24,23 @@ const appRoutes: Routes = [
     AppComponent,
     ProductComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    B2cprofilesComponent,
+    B2cprofileComponent
   ],
   imports: [
     BrowserModule,
+    BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [
+    B2cprofileService,
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,16 @@
+<div class="row">
+  <div *ngFor="let b2cProfile of b2cProfiles" class="col-md-3">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ b2cProfile.businessName }}
+          <small>{{ b2cProfile.category }}</small>
+        </h5>
+        <small>{{ b2cProfile.location }}</small>
+        <p class="card-text">
+          {{ b2cProfile.description.substr(1, 50) }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
